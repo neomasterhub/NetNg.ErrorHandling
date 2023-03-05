@@ -1,10 +1,29 @@
 main {
   margin: 0 auto;
-  width: fit-content;
+  width: 300px;
 }
 
-h1 {
+h2 {
   margin: 0 auto;
   padding: 10px 30px;
-  background-color: azure;
+  color: cornflowerblue;
+}
+
+input {
+  outline: none;
+  display: block;
+  box-sizing: border-box;
+  margin: 15px 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  text-indent: 15px;
+  line-height: 30px;
+  border: 1px solid gray;
+}
+
+button {
+  display: block;
+  width: 100%;
+  line-height: 30px;
 }
