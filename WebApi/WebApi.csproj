@@ -10,6 +10,6 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 	</ItemGroup>
 
-	<Import Project="..\StyleCop\StyleCop.props"/>
+	<Import Project="..\StyleCop\StyleCop.props" />
 
 </Project>
