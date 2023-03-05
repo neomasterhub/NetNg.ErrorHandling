@@ -11,10 +11,7 @@ public class ErrorController : ApiControllerBase
     {
         var exceptionHandlerFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
         var error = exceptionHandlerFeature.Error;
-        var errorModel = new ErrorModel
-        {
-            Message = error.Message,
-        };
+        var errorModel = new ErrorModel(error);
 
         return new ObjectResult(errorModel)
         {
