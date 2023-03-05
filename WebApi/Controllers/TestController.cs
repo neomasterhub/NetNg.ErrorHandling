@@ -17,7 +17,8 @@ public class TestController : ApiControllerBase
             }),
             _ => throw
                 new MyException("1",
-                    new AggregateException("2",
+                    new AggregateException(
+                        new MyException("2"),
                         new MyException("3"))),
         };
     }
