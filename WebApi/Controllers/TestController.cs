@@ -7,7 +7,7 @@ namespace WebApi.Controllers;
 public class TestController : ApiControllerBase
 {
     [HttpGet]
-    public JsonResult Index(int statusCode = 200)
+    public IActionResult Index(int statusCode = 200)
     {
         return statusCode switch
         {
@@ -15,6 +15,9 @@ public class TestController : ApiControllerBase
             {
                 Message = "Hello World!",
             }),
+            400 => BadRequest(),
+            401 => Unauthorized(),
+            403 => Forbid(),
             _ => throw
                 new MyException("1",
                     new AggregateException(
