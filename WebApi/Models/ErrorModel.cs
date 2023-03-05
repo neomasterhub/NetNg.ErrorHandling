@@ -2,5 +2,12 @@
 
 public class ErrorModel
 {
-    public string Message { get; set; }
+    public ErrorModel(Exception e)
+    {
+        ExceptionTypeName = e.GetType().Name;
+        Message = e.Message;
+    }
+
+    public string ExceptionTypeName { get; }
+    public string Message { get; }
 }
