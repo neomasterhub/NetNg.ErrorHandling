@@ -15,7 +15,7 @@ export class ServerErrorInterceptor implements HttpInterceptor {
             const serverError = httpErrorResponse.error as IServerErrorModel;
 
             // as a service
-            console.error({serverError});
+            console.warn({serverError});
           }
 
           return throwError(() => httpErrorResponse);
