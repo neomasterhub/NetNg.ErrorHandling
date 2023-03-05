@@ -14,7 +14,7 @@ public class TestController : ApiControllerBase
             {
                 Message = "Hello World!",
             }),
-            _ => throw new MyException("Error 500"),
+            _ => throw new MyException("Lorem error ipsum"),
         };
     }
 }
