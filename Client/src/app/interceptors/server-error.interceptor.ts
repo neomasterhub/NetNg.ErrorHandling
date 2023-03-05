@@ -11,7 +11,7 @@ export class ServerErrorInterceptor implements HttpInterceptor {
     return next.handle(request)
       .pipe(
         catchError((httpErrorResponse: HttpErrorResponse) => {
-          if (httpErrorResponse.status !== 0) {
+          if (httpErrorResponse.status === 500) {
             const errorModel = httpErrorResponse.error as IErrorModel;
 
             // as a service
