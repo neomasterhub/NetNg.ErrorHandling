@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Models;
+using Neomaster.Extensions.Exception;
+using WebApi.ActivityTypes;
 
 namespace WebApi.Controllers;
 
@@ -11,9 +12,11 @@ public class ErrorController : ApiControllerBase
     {
         var exceptionHandlerFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
         var error = exceptionHandlerFeature.Error;
-        var errorModel = new ErrorModel(error);
+        var errorStack = error
+            .GetAllInnerExceptions()
+            .Select(e => new Error(e));
 
-        return new ObjectResult(errorModel)
+        return new ObjectResult(errorStack)
         {
             StatusCode = 500,
         };
