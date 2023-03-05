@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApi.ActivityTypes;
 
 namespace WebApi.Controllers;
 
@@ -13,7 +14,7 @@ public class TestController : ApiControllerBase
             {
                 Message = "Hello World!",
             }),
-            _ => throw new Exception("Error 500"),
+            _ => throw new MyException("Error 500"),
         };
     }
 }
