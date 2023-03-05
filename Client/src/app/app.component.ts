@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,7 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   statusCode = 200;
 
+  constructor(private readonly http: HttpClient) {
+  }
+
   get() {
-    console.log(this.statusCode);
+    this.http.get<string>(`http://localhost:5120/test?statusCode=${this.statusCode}`)
+      .subscribe(console.log);
   }
 }
