@@ -15,7 +15,7 @@ export class ServerErrorInterceptor implements HttpInterceptor {
             const errorModel = httpErrorResponse.error as IErrorModel;
 
             // as a service
-            alert(JSON.stringify({"error model": errorModel}, null, 4));
+            console.error({errorModel});
           }
 
           return throwError(() => httpErrorResponse);
