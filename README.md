@@ -1,5 +1,10 @@
 # NetNg.ErrorHandling
 
+[![.NET](https://img.shields.io/badge/.NET-v6-informational)](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+[![Angular CLI](https://img.shields.io/badge/Angular_CLI-v15.2.1-informational)](https://www.npmjs.com/package/@angular/cli/v/15.2.1)
+
+---
+
 ## Demo
 
 ![web page](Docs/1.png "web page")
