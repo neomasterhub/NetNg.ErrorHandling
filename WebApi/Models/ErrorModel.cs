@@ -1,13 +1,16 @@
-﻿namespace WebApi.Models;
+﻿using Neomaster.Extensions.Exception;
+using WebApi.ActivityTypes;
+
+namespace WebApi.Models;
 
 public class ErrorModel
 {
     public ErrorModel(Exception e)
     {
-        Type = e.GetType().Name;
-        Message = e.Message;
+        ErrorStack = e
+            .GetAllInnerExceptions()
+            .Select(e => new Error(e));
     }
 
-    public string Type { get; }
-    public string Message { get; }
+    public IEnumerable<Error> ErrorStack { get; }
 }
