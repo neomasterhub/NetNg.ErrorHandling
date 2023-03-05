@@ -1,4 +1,5 @@
+import { IServerError } from "../activity-types/server-error";
+
 export interface IErrorModel {
-  type: string,
-  message: string,
+  errorStack: IServerError[],
 }
