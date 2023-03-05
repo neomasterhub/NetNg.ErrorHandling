@@ -1,5 +1,5 @@
 import { IServerError } from "../activity-types/server-error";
 
-export interface IErrorModel {
+export interface IServerErrorModel {
   errorStack: IServerError[],
 }

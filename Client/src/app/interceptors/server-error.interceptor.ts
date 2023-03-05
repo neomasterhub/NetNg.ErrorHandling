@@ -2,7 +2,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { IErrorModel } from "../models/error.model";
+import { IServerErrorModel } from "../models/server-error.model";
 
 @Injectable()
 export class ServerErrorInterceptor implements HttpInterceptor {
@@ -12,10 +12,10 @@ export class ServerErrorInterceptor implements HttpInterceptor {
       .pipe(
         catchError((httpErrorResponse: HttpErrorResponse) => {
           if (httpErrorResponse.status === 500) {
-            const errorModel = httpErrorResponse.error as IErrorModel;
+            const serverError = httpErrorResponse.error as IServerErrorModel;
 
             // as a service
-            console.error({errorModel});
+            console.error({serverError});
           }
 
           return throwError(() => httpErrorResponse);
