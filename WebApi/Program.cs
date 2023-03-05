@@ -9,6 +9,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 app.UseRouting();
+app.UseExceptionHandler("/error");
 
 if (app.Environment.IsDevelopment())
 {
