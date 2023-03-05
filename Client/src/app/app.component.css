@@ -6,7 +6,8 @@ main {
 h2 {
   margin: 0 auto;
   padding: 10px 30px;
-  color: cornflowerblue;
+  font-family: monospace;
+  color: #003aa3;
 }
 
 input {
