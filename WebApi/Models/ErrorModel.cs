@@ -4,10 +4,10 @@ public class ErrorModel
 {
     public ErrorModel(Exception e)
     {
-        ExceptionTypeName = e.GetType().Name;
+        Type = e.GetType().Name;
         Message = e.Message;
     }
 
-    public string ExceptionTypeName { get; }
+    public string Type { get; }
     public string Message { get; }
 }
