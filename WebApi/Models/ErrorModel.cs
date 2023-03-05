@@ -8,7 +8,7 @@ public class ErrorModel
     public ErrorModel(Exception e)
     {
         ErrorStack = e
-            .GetAllInnerExceptions()
+            .GetAllInnerExceptions(addAggregate: true)
             .Select(e => new Error(e));
     }
 
