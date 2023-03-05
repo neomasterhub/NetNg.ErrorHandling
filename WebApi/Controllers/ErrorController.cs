@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Models;
 
 namespace WebApi.Controllers;
 
@@ -10,10 +11,14 @@ public class ErrorController : ApiControllerBase
     {
         var exceptionHandlerFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
         var error = exceptionHandlerFeature.Error;
+        var errorModel = new ErrorModel
+        {
+            Message = error.Message,
+        };
 
-        return Problem(
-            statusCode: 500,
-            title: error.Message,
-            detail: error.StackTrace);
+        return new ObjectResult(errorModel)
+        {
+            StatusCode = 500,
+        };
     }
 }
